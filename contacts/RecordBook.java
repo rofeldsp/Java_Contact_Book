@@ -47,10 +47,6 @@ public class RecordBook implements Serializable {
         }
     }
 
-//    void searchBook() {
-//
-//    }
-
     public Record get(int index) {
         return book.get(index);
     }
@@ -84,68 +80,4 @@ public class RecordBook implements Serializable {
             }
         }
     }
-
-//    public boolean editRecord_Organization(int index, String field) {
-//        Scanner scanner = new Scanner(System.in);
-//        if (field.matches("name")) {
-//            System.out.print("Enter name: > ");
-//            String newName = scanner.nextLine();
-//            book.get(index).setName(newName);
-//            return true;
-//        } else if (field.matches("address")) {
-//            System.out.print("Enter surname: > ");
-//            String newAddress = scanner.nextLine();
-//            ((Organization)book.get(index)).setAddress(newAddress);
-//            return true;
-//        } else if (field.matches("number")) {
-//            System.out.print("Enter number: > ");
-//            String newNumber = scanner.nextLine();
-//            book.get(index).setNumber(newNumber);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
-//    public boolean editRecord_Contact (int index, String field) {
-//        Scanner scanner = new Scanner(System.in);
-////        String name = book.get(index).getName();
-////        String surname = ((Contact)book.get(index)).getSurname();
-////        String number = book.get(index).getNumber();
-////        String gender = ((Contact)book.get(index)).getGender();
-////        String birtDate = ((Contact)book.get(index)).getBirthday().toString();
-//        if (field.matches("name")) {
-//            System.out.print("Enter name: > ");
-//            String newName = scanner.nextLine();
-////            book.set(index, new Contact(newName, surname, number, birtDate, gender));
-//            book.get(index).setName(newName);
-//            return true;
-//        } else if (field.matches("surname")) {
-//            System.out.print("Enter surname: > ");
-//            String newSurname = scanner.nextLine();
-////            book.set(index, new Contact(name, newSurname, number, birtDate, gender));
-//            ((Contact)book.get(index)).setSurname(newSurname);
-//            return true;
-//        } else if (field.matches("number")) {
-//            System.out.print("Enter number: > ");
-//            String newNumber = scanner.nextLine();
-////            book.set(index, new Contact(name, surname, newNumber, birtDate, gender));
-//            book.get(index).setNumber(newNumber);
-//            return true;
-//        } else if (field.matches("gender")) {
-//            System.out.print("Enter gender: > ");
-//            String newGender = scanner.nextLine();
-////            book.set(index, new Contact(name, surname, newNumber, birtDate, gender));
-//            ((Contact)book.get(index)).setGender(newGender);
-//            return true;
-//        } else if (field.matches("birth date")) {
-//            System.out.print("Enter gender: > ");
-//            String newBirthDate = scanner.nextLine();
-////            book.set(index, new Contact(name, surname, newNumber, birtDate, gender));
-//            ((Contact)book.get(index)).setBirthDate(newBirthDate);
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 }

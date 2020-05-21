@@ -89,49 +89,6 @@ public class Main implements Serializable {
         book.addRecord(newContact);
     }
 
-//    public static void removeRecord (RecordBook book) {
-//        if (book.countRecords() == 0) {
-//            System.out.println("No records to remove!");
-//        } else {
-//            Scanner scanner = new Scanner(System.in);
-//            book.listRecords();
-//            while (true) {
-//                System.out.print("Select a record: > ");
-//                String record = scanner.nextLine();
-//                if (!(record.matches("\\d"))) {
-//                    System.out.println("Wrong input. Please enter the record number instead.");
-//                    continue;
-//                }
-//                int index = Integer.parseInt(record);
-//                book.removeRecord(index);
-//                System.out.println("The record removed!");
-//                return;
-//            }
-//        }
-//    }
-//
-//    enum EditType {
-//        ORGANIZATION,
-//        CONTACT
-//    }
-
-//    public static void editRecord(RecordBook book, int index, EditType type) {
-//        Scanner scanner = new Scanner(System.in);
-//        while (true) {
-//            System.out.printf("Select a field %s: > ",
-//                    type == EditType.CONTACT ? "(name, surname, number, birth date, gender)" : "(name, address, number)");
-//            String field = scanner.nextLine();
-//            if (type == EditType.CONTACT ? book.editRecord_Contact(index, field)
-//                    : book.editRecord_Organization(index, field)) {
-//                System.out.println("The record updated!\n");
-//                book.get(index).setTimeLastEdit(LocalDateTime.now());
-//                return;
-//            } else {
-//                System.out.println("There is no such field");
-//            }
-//        }
-//    }
-
     public static void listBook(RecordBook book) {
         if (book.countRecords() == 0) {
             System.out.println("There is 0 records in contact book!");
@@ -139,7 +96,6 @@ public class Main implements Serializable {
             Scanner scanner = new Scanner(System.in);
             book.listRecords();
             while (true) {
-//                System.out.printf("Enter the index %s: > ", type == CommandType.EDIT ? "you want to edit" : "to show info");
                 System.out.print("\n[list] Enter action ([number], back): ");
                 String scanned = scanner.nextLine();
                 if (scanned.contentEquals("back")) {
@@ -148,22 +104,8 @@ public class Main implements Serializable {
                     int index = Integer.parseInt(scanned);
                     if (index > 0 && index <= book.countRecords()) {
                         index--;
-//                        String[] fields = book.get(index).getFields();
                         book.get(index).getInfo();
                         book.getAction(index, book);
-//                        if (book.get(index).getClass() == Contact.class) {
-//                            if (type == CommandType.INFO) {
-//                                getContactInfo((Contact)book.get(index));
-//                            } else {
-//                                editRecord(book, index, EditType.CONTACT);
-//                            }
-//                        } else if (book.get(index).getClass() == Organization.class) {
-//                            if (type == CommandType.INFO) {
-//                                getOrganizationInfo((Organization)book.get(index));
-//                            } else {
-//                               editRecord(book, index, EditType.ORGANIZATION);
-//                            }
-//                        }
                         return;
                     }
                 }
@@ -176,13 +118,11 @@ public class Main implements Serializable {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter search query: ");
         String query = scanner.nextLine();
-//        ArrayList<Record> searchResults = new ArrayList<Record>();
         Pattern pattern = Pattern.compile(query, Pattern.CASE_INSENSITIVE);
         RecordBook searchResults = new RecordBook();
         for (int i = 0; i < book.countRecords(); i++) {
            for (String field : book.get(i).getFields()) {
                if (pattern.matcher(book.get(i).getFieldValue(field)).find()) {
-//               if (book.get(i).getFieldValue(field).matches(pattern)) {
                    searchResults.addSearchRecord(book.get(i));
                }
            }
@@ -204,7 +144,6 @@ public class Main implements Serializable {
                     int index = Integer.parseInt(scanned);
                     if (index > 0 && index <= searchResults.countRecords()) {
                         index--;
-//                        String[] fields = searchResults.get(index).getFields();
                         searchResults.get(index).getInfo();
                         searchResults.getAction(index, book);
                         return;
