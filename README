@@ -1,0 +1,2 @@
+Command line contact book. Add, edit, list, search through and remove records.
+Just compile and run, all commands available will be displayed on the command line. You can also specify a file, to which all the records will be saved. 
